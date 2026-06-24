@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Markt 12 Kiosk & DHL Paketshop Köln-Chorweiler</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+background:#0b0d12;
+color:white;
+overflow-x:hidden;
+}
+
+/* NAV */
+.nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+padding:14px 20px;
+background:rgba(0,0,0,0.55);
+backdrop-filter:blur(12px);
+z-index:1000;
+}
+
+.status{
+padding:6px 12px;
+border-radius:999px;
+font-size:12px;
+font-weight:900;
+}
+
+.open{background:#00c853;}
+.closed{background:#ff1744;}
+
+/* HERO */
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.hero video{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+min-width:100%;
+min-height:100%;
+object-fit:cover;
+z-index:-2;
+filter:brightness(0.55) saturate(1.3);
+}
+
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(180deg,rgba(255,0,0,0.25),rgba(0,0,0,0.85));
+z-index:-1;
+}
+
+.hero h1{
+font-size:4.5rem;
+font-weight:900;
+}
+
+.hero p{
+margin-top:10px;
+opacity:.9;
+font-size:1.2rem;
+}
+
+.hero-actions{
+margin-top:55px;
+display:flex;
+gap:12px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:14px 22px;
+border-radius:14px;
+font-weight:900;
+text-decoration:none;
+transition:0.2s;
+}
+
+.primary{background:#ff2d2d;color:white;}
+.secondary{background:white;color:#111;}
+
+.btn:hover{transform:scale(1.05);}
+
+/* SECTIONS */
+section{
+max-width:1100px;
+margin:auto;
+padding:90px 20px;
+opacity:0;
+transform:translateY(60px);
+transition:1s ease;
+}
+
+section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+h2{
+text-align:center;
+font-size:2.4rem;
+margin-bottom:30px;
+color:#ff2d2d;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+}
+
+/* CARDS */
+.card3d{
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.12);
+border-radius:18px;
+overflow:hidden;
+transition:0.35s;
+box-shadow:0 20px 40px rgba(0,0,0,0.6);
+}
+
+.card3d:hover{
+transform:perspective(900px) rotateY(10deg) rotateX(10deg);
+}
+
+.img{
+height:180px;
+background-size:cover;
+background-position:center;
+}
+
+.text{
+padding:15px;
+}
+
+.text h3{
+color:#ff2d2d;
+}
+
+.infoBtn{
+margin-top:10px;
+padding:10px 14px;
+border:none;
+border-radius:12px;
+background:#ff2d2d;
+color:white;
+font-weight:900;
+cursor:pointer;
+}
+
+/* FLOAT */
+.float{
+position:fixed;
+bottom:20px;
+right:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.float a{
+padding:14px 16px;
+border-radius:50px;
+color:white;
+text-decoration:none;
+font-weight:900;
+}
+
+.call{background:#ff2d2d;}
+.wa{background:#25D366;}
+
+/* MAP */
+.map{
+border-radius:16px;
+overflow:hidden;
+}
+
+/* IMPRESSUM */
+.impressum{
+background:white;
+color:#111;
+padding:40px 20px;
+border-radius:16px;
+}
+
+footer{
+text-align:center;
+padding:25px;
+background:#000;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav">
+<div>📦 Markt 12</div>
+<div id="status" class="status">...</div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+
+<video autoplay muted loop>
+<source src="https://cdn.coverr.co/videos/coverr-a-small-shop-8572/1080p.mp4">
+</video>
+
+<div>
+<h1>Markt 12</h1>
+<p>Kiosk & DHL Paketshop in Köln-Chorweiler</p>
+
+<div class="hero-actions">
+<a class="btn primary" href="tel:01631441252">📞 Anrufen</a>
+<a class="btn secondary" href="https://www.google.com/maps/dir/?api=1&destination=Schaaffhausenstraße+2a+Köln">📍 Route</a>
+</div>
+</div>
+
+</section>
+
+<!-- STORE -->
+<section>
+<h2>Unser Laden</h2>
+
+<div class="grid">
+
+<div class="card3d">
+<div class="img" style="background-image:url('https://images.unsplash.com/photo-1604719312566-8912e8c4f9f2')"></div>
+<div class="text">
+<h3>Kiosk Bereich</h3>
+<p>Alles für den Alltag.</p>
+<button class="infoBtn" onclick="openInfo('kiosk')">Mehr Infos</button>
+</div>
+</div>
+
+<div class="card3d">
+<div class="img" style="background-image:url('https://images.unsplash.com/photo-1580910051074-3eb694886505')"></div>
+<div class="text">
+<h3>DHL Service</h3>
+<p>Schnelle Paketabgabe.</p>
+<button class="infoBtn" onclick="openInfo('dhl')">Mehr Infos</button>
+</div>
+</div>
+
+<div class="card3d">
+<div class="img" style="background-image:url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092')"></div>
+<div class="text">
+<h3>Softdrinks & Getränke</h3>
+<p>Kalte Drinks & Energy.</p>
+<button class="infoBtn" onclick="openInfo('drinks')">Mehr Infos</button>
+</div>
+</div>
+
+<div class="card3d">
+<div class="img" style="background-image:url('https://images.unsplash.com/photo-1551024601-bec78aea704b')"></div>
+<div class="text">
+<h3>Snacks & Süßwaren</h3>
+<p>Chips, Schokolade & mehr.</p>
+<button class="infoBtn" onclick="openInfo('snacks')">Mehr Infos</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- MAP -->
+<section>
+<h2>Standort</h2>
+
+<div class="map">
+<iframe width="100%" height="320"
+src="https://www.google.com/maps?q=Schaaffhausenstraße+2a+Köln&output=embed"></iframe>
+</div>
+</section>
+
+<!-- IMPRESSUM -->
+<section class="impressum">
+<h2>Impressum</h2>
+
+<p><strong>Markt 12 Kiosk & DHL Paketshop</strong></p>
+<p>Schaaffhausenstraße 2a</p>
+<p>50769 Köln</p>
+<br>
+
+<p>Telefon: 0163 1441252</p>
+<p>E-Mail: info@markt12.de</p>
+<br>
+
+<p><strong>Haftung:</strong> Keine Haftung für externe Links oder Inhalte Dritter.</p>
+</section>
+
+<footer>
+© 2026 Markt 12
+</footer>
+
+<!-- FLOAT -->
+<div class="float">
+<a class="call" href="tel:01631441252">📞 Call</a>
+<a class="wa" href="https://wa.me/491631441252">💬 WhatsApp</a>
+</div>
+
+<script>
+
+/* STATUS */
+function status(){
+const h=new Date().getHours();
+document.getElementById("status").innerText =
+(h>=8 && h<22) ? "🟢 Geöffnet" : "🔴 Geschlossen";
+}
+status();
+
+/* POPUP */
+function openInfo(type){
+
+let title="", text="";
+
+if(type==="kiosk"){
+title="Kiosk Bereich";
+text="Alles für den täglichen Bedarf: Getränke, Snacks und mehr.";
+}
+if(type==="dhl"){
+title="DHL Service";
+text="Pakete schnell abgeben oder abholen ohne Wartezeit.";
+}
+if(type==="drinks"){
+title="Softdrinks & Getränke";
+text="Energy Drinks, Wasser, Cola und gekühlte Getränke.";
+}
+if(type==="snacks"){
+title="Snacks & Süßwaren";
+text="Chips, Schokolade und süße Snacks jederzeit verfügbar.";
+}
+
+alert(title + "\n\n" + text);
+}
+
+/* SCROLL ANIMATION */
+const sections=document.querySelectorAll("section");
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting) e.target.classList.add("show");
+});
+},{threshold:0.15});
+
+sections.forEach(s=>observer.observe(s));
+
+</script>
+
+</body>
+</html>
